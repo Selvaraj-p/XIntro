@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  color: #1d1d1f;
+  line-height: 1.6;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  height: 30px;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav-link button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #1d1d1f;
+  position: relative;
+}
+
+.nav-link.link-open > .dropdown-list {
+  display: block;
+}
+
+.dropdown-list {
+  display: none;
+  position: relative;
+  background-color: white;
+  list-style: none;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  min-width: 150px;
+}
+
+.dropdown-link a {
+  text-decoration: none;
+  color: #1d1d1f;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.registration {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.registration button {
+  background: none;
+  border: 1px solid #1d1d1f;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.registration button:hover {
+  background-color: #1d1d1f;
+  color: white;
+}
+
+.open-menu,
+.close-menu {
+  display: block;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.open-menu {
+  display: block;
+}
+
+.close-menu {
+  display: none;
+}
+
+nav {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+nav.active {
+  display: flex;
+  opacity: 1;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.text-content p {
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+
+.text-content button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #1d1d1f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.text-content button:hover {
+  background-color: #333;
+}
+
+.clients {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.clients img {
+  height: 30px;
+}
+
+footer.attribution {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+/* ---------- Desktop view ---------- */
+@media (min-width: 768px) {
+  nav {
+    display: flex !important;
+    opacity: 1 !important;
+    position: static;
+    box-shadow: none;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  .registration {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .open-menu,
+  .close-menu,
+  .overlay {
+    display: none !important;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: 2rem;
+  }
+}
+
+nav.active + .close-menu {
+  display: block;
+}
